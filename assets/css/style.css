@@ -1475,6 +1475,13 @@ h6 {
 .no-scroll {
   overflow: hidden;
 }
+
+/* BTC Map iframe styling */
+#btcmap {
+  width: 100%;
+  min-height: 600px;
+  height: 100%;
+}
 /* Mobile Menu States - Missing after UnCSS optimization */
 /* These classes are added dynamically by JavaScript, so UnCSS removed them */
 
