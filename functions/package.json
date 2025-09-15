@@ -1,0 +1,10 @@
+{
+  "name": "zwollebitcoinstad-functions",
+  "version": "1.0.0",
+  "description": "Cloudflare Pages Functions for Zwolle Bitcoinstad website",
+  "main": "_middleware.js",
+  "dependencies": {
+    "@cloudflare/pages-plugin-static-forms": "^1.0.0"
+  },
+  "type": "module"
+}
