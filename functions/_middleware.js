@@ -1,11 +1,17 @@
-import staticFormsPlugin from "@cloudflare/pages-plugin-static-forms";
-
-export const onRequest = staticFormsPlugin({
-  respondWith: ({ formData, name }) => {
-    // Extract form data
+export async function onRequestPost(context) {
+  const { request } = context;
+  
+  try {
+    // Parse form data
+    const formData = await request.formData();
     const naam = formData.get("naam");
     const email = formData.get("email");
     const bericht = formData.get("bericht");
+    
+    // Validate required fields
+    if (!naam || !email || !bericht) {
+      return new Response('Alle velden zijn verplicht', { status: 400 });
+    }
     
     // Create email content for logging/future email service
     const emailSubject = `Nieuw contactformulier bericht van ${naam}`;
@@ -107,5 +113,9 @@ Verzonden op: ${new Date().toLocaleString('nl-NL', { timeZone: 'Europe/Amsterdam
         'Content-Type': 'text/html; charset=utf-8',
       },
     });
-  },
-});
+    
+  } catch (error) {
+    console.error('Form submission error:', error);
+    return new Response('Er is een fout opgetreden bij het verzenden van je bericht', { status: 500 });
+  }
+}
