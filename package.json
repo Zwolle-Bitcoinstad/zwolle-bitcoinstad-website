@@ -1,0 +1,27 @@
+{
+  "name": "zwollebitcoinstad-website",
+  "version": "1.0.0",
+  "description": "Zwolle Bitcoinstad website with Cloudflare Pages Static Forms",
+  "main": "index.html",
+  "scripts": {
+    "dev": "wrangler pages dev .",
+    "deploy": "wrangler pages deploy .",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "dependencies": {
+    "@cloudflare/pages-plugin-static-forms": "^1.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240909.0",
+    "typescript": "^5.0.0",
+    "wrangler": "^3.0.0"
+  },
+  "keywords": [
+    "bitcoin",
+    "zwolle",
+    "static-site",
+    "cloudflare-pages"
+  ],
+  "author": "Zwolle Bitcoinstad",
+  "license": "MIT"
+}
