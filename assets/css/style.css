@@ -1102,7 +1102,7 @@ h6 {
   }
 }
 #business-section {
-  background-image: url(../images/map-background.webp);
+  background-image: url(../images/map-background-optimized.webp);
   background-position: 50%;
   background-size: cover;
   position: relative;
@@ -1254,7 +1254,7 @@ h6 {
   margin-top: 50px;
 }
 #contact {
-  background-image: url(../images/contact-background.webp);
+  background-image: url(../images/contact-background-optimized.webp);
   background-position: 50%;
   background-size: cover;
   position: relative;
