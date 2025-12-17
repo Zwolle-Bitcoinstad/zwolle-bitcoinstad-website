@@ -1,0 +1,289 @@
+/* Layout v2 for Zwolle Bitcoinstad
+   New classes prefixed with zbs- to avoid conflicts with existing CSS. */
+
+:root{
+  --zbs-bg: #0b0f14;
+  --zbs-surface: rgba(255,255,255,.06);
+  --zbs-border: rgba(255,255,255,.14);
+  --zbs-text: rgba(255,255,255,.92);
+  --zbs-muted: rgba(255,255,255,.70);
+  --zbs-accent: #f7931a; /* bitcoin orange */
+  --zbs-accent-2: #ffd28a;
+  --zbs-shadow: 0 18px 50px rgba(0,0,0,.35);
+  --zbs-radius: 18px;
+  --zbs-max: 1120px;
+}
+
+.zbs-wrap{
+  max-width: var(--zbs-max);
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+.zbs-section{
+  padding: 54px 0;
+}
+
+.zbs-kicker{
+  font-size: .92rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--zbs-muted);
+}
+
+.zbs-h1{
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  line-height: 1.05;
+  margin: 10px 0 12px;
+  color: var(--zbs-text);
+}
+
+.zbs-lead{
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: var(--zbs-muted);
+  max-width: 62ch;
+}
+
+.zbs-hero{
+  position: relative;
+  padding: 56px 0 42px;
+}
+
+.zbs-heroCard{
+  border: 1px solid var(--zbs-border);
+  border-radius: var(--zbs-radius);
+  background: radial-gradient(1200px 600px at 20% 0%, rgba(247,147,26,.18), transparent 55%),
+              radial-gradient(900px 500px at 90% 10%, rgba(255,210,138,.12), transparent 55%),
+              var(--zbs-surface);
+  box-shadow: var(--zbs-shadow);
+  overflow: hidden;
+}
+
+.zbs-heroInner{
+  display: grid;
+  gap: 26px;
+  padding: 26px;
+}
+
+@media (min-width: 900px){
+  .zbs-heroInner{
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    padding: 34px;
+  }
+}
+
+.zbs-ctaRow{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.zbs-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 999px;
+  padding: 12px 16px;
+  border: 1px solid var(--zbs-border);
+  background: rgba(255,255,255,.06);
+  color: var(--zbs-text);
+  text-decoration: none;
+  font-weight: 650;
+  line-height: 1;
+}
+
+.zbs-btn:hover{
+  border-color: rgba(255,255,255,.24);
+  transform: translateY(-1px);
+}
+
+.zbs-btnPrimary{
+  border-color: rgba(247,147,26,.55);
+  background: linear-gradient(180deg, rgba(247,147,26,.24), rgba(247,147,26,.12));
+}
+
+.zbs-btnPrimary:hover{
+  border-color: rgba(247,147,26,.75);
+}
+
+.zbs-pillRow{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.zbs-pill{
+  border: 1px solid rgba(247,147,26,.35);
+  background: rgba(247,147,26,.10);
+  color: var(--zbs-muted);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-size: .92rem;
+}
+
+.zbs-panel{
+  border: 1px solid var(--zbs-border);
+  background: rgba(0,0,0,.18);
+  border-radius: var(--zbs-radius);
+  padding: 16px;
+}
+
+.zbs-panelTitle{
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: var(--zbs-text);
+}
+
+.zbs-panelText{
+  margin: 0;
+  color: var(--zbs-muted);
+  line-height: 1.55;
+}
+
+.zbs-grid3{
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+@media (min-width: 900px){
+  .zbs-grid3{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.zbs-card{
+  border: 1px solid var(--zbs-border);
+  border-radius: var(--zbs-radius);
+  background: rgba(255,255,255,.05);
+  padding: 16px;
+}
+
+.zbs-card h3{
+  margin: 0 0 8px;
+  color: var(--zbs-text);
+  font-size: 1.05rem;
+}
+
+.zbs-card p{
+  margin: 0 0 12px;
+  color: var(--zbs-muted);
+  line-height: 1.55;
+}
+
+.zbs-link{
+  color: var(--zbs-accent-2);
+  text-decoration: none;
+  font-weight: 650;
+}
+
+.zbs-link:hover{
+  text-decoration: underline;
+}
+
+.zbs-split{
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 900px){
+  .zbs-split{
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.zbs-list{
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.zbs-listItem{
+  border: 1px solid var(--zbs-border);
+  background: rgba(255,255,255,.04);
+  border-radius: 14px;
+  padding: 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.zbs-listItem strong{
+  color: var(--zbs-text);
+}
+
+.zbs-badge{
+  border: 1px solid rgba(247,147,26,.45);
+  background: rgba(247,147,26,.10);
+  color: var(--zbs-muted);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: .9rem;
+  white-space: nowrap;
+}
+
+.zbs-note{
+  color: var(--zbs-muted);
+  font-size: .98rem;
+  line-height: 1.55;
+}
+
+.zbs-form{
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.zbs-field{
+  display: grid;
+  gap: 6px;
+}
+
+.zbs-field label{
+  color: var(--zbs-muted);
+  font-size: .95rem;
+}
+
+.zbs-field input,
+.zbs-field textarea{
+  width: 100%;
+  border: 1px solid var(--zbs-border);
+  background: rgba(0,0,0,.18);
+  color: var(--zbs-text);
+  border-radius: 14px;
+  padding: 12px 12px;
+  outline: none;
+}
+
+.zbs-field textarea{
+  min-height: 140px;
+  resize: vertical;
+}
+
+.zbs-field input:focus,
+.zbs-field textarea:focus{
+  border-color: rgba(247,147,26,.6);
+  box-shadow: 0 0 0 3px rgba(247,147,26,.16);
+}
+
+.zbs-footerHint{
+  margin-top: 10px;
+  color: var(--zbs-muted);
+  font-size: .95rem;
+}
+
+.zbs-hr{
+  border: 0;
+  height: 1px;
+  background: rgba(255,255,255,.12);
+  margin: 0;
+}
