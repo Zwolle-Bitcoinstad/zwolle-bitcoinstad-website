@@ -381,8 +381,12 @@
   #site-header {
     background-position: 50%;
     background-size: cover;
-    position: relative;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
     width: 100%;
+    z-index: 1000;
   }
   .styled-button {
     align-items: center;
@@ -742,10 +746,12 @@ h6 {
 #logo-element .site-logo {
   height: 95px;
 }
-#logo-element {
-  margin-left: 18px;
-  margin-top: 2px;
-}
+  #logo-element {
+    margin-left: 0;
+    margin-right: 18px;
+    margin-top: 2px;
+    order: 2;
+  }
 @media screen {
   @media (max-width: 767px) {
     #nav-menu-element .nav-menu-wrapper {
@@ -756,20 +762,25 @@ h6 {
     }
   }
 }
-#nav-menu-element {
-  font-weight: 600;
-  letter-spacing: 1px;
-  margin-right: 15px;
-}
-#header-container {
-  align-items: center;
-  align-self: stretch !important;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-bottom: 8px;
-  padding-top: 15px;
-  width: 100%;
-}
+  #nav-menu-element {
+    display: flex;
+    flex: 1;
+    font-weight: 600;
+    justify-content: center;
+    letter-spacing: 1px;
+    margin-right: 0;
+    order: 1;
+  }
+  #header-container {
+    align-items: center;
+    align-self: stretch !important;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 8px;
+    padding-top: 15px;
+    width: 100%;
+  }
 #hero-subtitle {
   letter-spacing: 3px;
   line-height: 2;
