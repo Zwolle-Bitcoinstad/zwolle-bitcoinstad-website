@@ -67,6 +67,10 @@
   img {
     border-style: none;
   }
+  a:hover,
+  a:focus {
+    color: orange;
+  }
   button,
   input,
   textarea {
