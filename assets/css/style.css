@@ -1453,6 +1453,50 @@ h6 {
   }
 }
 
+.business-carousel .carousel-container {
+  height: auto;
+  padding: 10px 0;
+}
+
+.business-carousel .carousel-track {
+  align-items: stretch;
+  height: auto;
+}
+
+.business-carousel .carousel-slide {
+  box-sizing: border-box;
+  margin-right: 0;
+  min-width: 33.333%;
+  padding: 0 10px;
+}
+
+.business-carousel figure {
+  margin: 0;
+  position: relative;
+}
+
+.business-carousel .image {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .business-carousel .carousel-slide {
+    min-width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .business-carousel .carousel-container {
+    height: auto;
+  }
+
+  .business-carousel .carousel-slide {
+    min-width: 100%;
+    padding: 0;
+  }
+}
+
 /* Mobile Menu States - Restored after UnCSS (dynamically added classes) */
 .nav-menu.show-mobile-menu .mobile-menu-toggle {
   min-width: 20px;
