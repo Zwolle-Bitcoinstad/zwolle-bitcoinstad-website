@@ -1042,6 +1042,91 @@ h6 {
   padding-bottom: 25px;
   width: 100%;
 }
+#hero-cta-buttons,
+.hero-cta-buttons,
+.zwolle-proof-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  width: 100%;
+}
+.hero-cta-buttons .styled-button,
+.zwolle-proof-cta .styled-button {
+  width: 100%;
+}
+.primary-button {
+  background-color: #ff9800;
+  border-radius: 6px;
+  color: #1d1d1d;
+  font-weight: 700;
+  padding: 0.75em 1.25em;
+  text-decoration: none;
+}
+.primary-button:hover,
+.primary-button:focus {
+  background-color: #f2a529;
+  color: #1d1d1d;
+}
+.primary-button:focus-visible,
+.secondary-button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+.secondary-button {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  text-decoration: none;
+}
+.secondary-button:hover,
+.secondary-button:focus {
+  opacity: 1;
+}
+#zwolle-proof .content-block {
+  gap: 16px;
+}
+.zwolle-proof-cards {
+  display: grid;
+  gap: 16px;
+  margin-top: 12px;
+  width: 100%;
+}
+.zwolle-proof-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+.zwolle-proof-card h4 {
+  margin-top: 0;
+}
+.merchants-proof {
+  gap: 8px;
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+.merchant-count {
+  color: #616161;
+  font-size: 0.9rem;
+  margin: 16px auto 0;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .hero-cta-buttons,
+  .zwolle-proof-cta {
+    flex-direction: row;
+    width: auto;
+  }
+  .hero-cta-buttons .styled-button,
+  .zwolle-proof-cta .styled-button {
+    width: auto;
+  }
+  .zwolle-proof-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 #hero-container {
   align-items: center;
   margin-bottom: 120px;
