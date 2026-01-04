@@ -999,6 +999,10 @@ h6 {
 .orangeLink:focus {
   color: #ff9800 !important;
 }
+.orangeLink.telegram-link:hover,
+.orangeLink.telegram-link:focus {
+  color: #ffffff !important;
+}
 #cta-button-1 {
   align-self: center;
   border: solid rgba(69, 49, 196, 0.1);
