@@ -192,7 +192,7 @@
       Apple Color Emoji,
       Segoe UI Emoji,
       Segoe UI Symbol;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.7;
     transition: all 0.2s;
     transition: padding-top 0s;
@@ -722,9 +722,20 @@ h6 {
 }
 :where(.icon-box .content) a,
 :where(.content-text) a {
-  color: var(--semantic-color-211f31);
-  letter-spacing: 0.7px;
-  text-shadow: 0.1px 0.1px 1px var(--semantic-color-4f2343);
+  color: currentcolor;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: none;
+  transition: color 0.2s ease-in-out;
+}
+:where(main, footer) a {
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: color 0.2s ease-in-out;
+}
+:where(main, footer) a:hover,
+:where(main, footer) a:focus {
+  color: #ff9800;
 }
 :root {
   --semantic-color-ca50b5: #f5f5f5;
@@ -979,7 +990,14 @@ h6 {
   padding-bottom: 30px;
 }
 .orangeLink {
-  color: orange !important;
+  color: currentcolor !important;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: color 0.2s ease-in-out;
+}
+.orangeLink:hover,
+.orangeLink:focus {
+  color: #ff9800 !important;
 }
 #cta-button-1 {
   align-self: center;
