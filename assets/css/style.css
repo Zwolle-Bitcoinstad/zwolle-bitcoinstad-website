@@ -1063,14 +1063,14 @@ h6 {
   border-radius: 6px;
   color: #1d1d1d;
   font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.6em 1.1em;
+  font-size: 1rem;
+  padding: 0.7em 1.3em;
   text-decoration: none;
 }
 .primary-button:hover,
 .primary-button:focus {
   background-color: #f2a529;
-  color: #1d1d1d;
+  color: #ffffff;
 }
 .primary-button:focus-visible,
 .secondary-button:focus-visible {
