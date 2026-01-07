@@ -1291,8 +1291,8 @@ h6 {
   padding: 42px 0 0;
 }
 #carousel-section-main {
-  background-color: #f90;
-  background-image: linear-gradient(#ff9800 70%, #b5b5b5);
+  background-color: #fff;
+  background-image: none;
   padding-bottom: 85px;
   padding-top: 85px;
 }
@@ -1400,19 +1400,15 @@ h6 {
   margin-top: 50px;
 }
 #contact {
-  background-image: url(../images/contact-background-optimized.webp);
-  background-position: 50%;
-  background-size: cover;
+  background-color: #fff;
+  background-image: none;
   position: relative;
 }
 :where(#contact > *) {
   position: relative;
 }
 #contact:before {
-  background-image: linear-gradient(
-    rgba(250, 150, 0, 0.6),
-    rgba(255, 193, 7, 0.71)
-  );
+  background-image: none;
   bottom: 0;
   content: "";
   left: 0;
@@ -1447,7 +1443,7 @@ h6 {
 #footer-block {
   align-items: center;
   align-self: stretch !important;
-  background-color: #8a8a8a;
+  background-color: #fff;
   flex-direction: row;
   justify-content: space-between;
   padding: 15px;
