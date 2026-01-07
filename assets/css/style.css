@@ -1,26 +1,6 @@
 /*** uncss> filename: assets/css/style.css ***/
 @charset "UTF-8";
 
-/* Open Sans Font Family - Only regular weight (400) with synthetic bold */
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  font-synthesis: weight;
-  src: url('../fonts/open-sans-400-subset.woff2') format('woff2');
-}
-
-/* Ubuntu Font Family - Only regular weight (400) with synthetic bold */
-@font-face {
-  font-family: "Ubuntu";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  font-synthesis: weight;
-  src: url('../fonts/ubuntu-400-subset.woff2') format('woff2');
-}
-
 @layer semantic.reset, semantic.editor, semantic.icons;
 @layer semantic {
   :root {
@@ -74,7 +54,7 @@
   button,
   input,
   textarea {
-    font-family: sans-serif;
+    font-family: inherit;
     font-size: 100%;
     line-height: 1.15;
     margin: 0;
@@ -113,6 +93,15 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+  }
+  main > .content-section {
+    padding-block: 80px;
+  }
+  #main-section {
+    padding: 0;
+  }
+  #footer-section {
+    padding-block: 40px;
   }
   @media (max-width: 767px) {
     .content-section {
@@ -181,19 +170,9 @@
     background-color: #fff;
     background-position: 50%;
     color: #363636;
-    font-family:
-      -apple-system,
-      "system-ui",
-      Segoe UI,
-      roboto,
-      helvetica,
-      arial,
-      sans-serif,
-      Apple Color Emoji,
-      Segoe UI Emoji,
-      Segoe UI Symbol;
+    font-family: "Ubuntu", sans-serif;
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.65;
     transition: all 0.2s;
     transition: padding-top 0s;
   }
@@ -210,6 +189,7 @@
     text-decoration: none;
   }
   h1,
+  h2,
   h3,
   h4,
   h6 {
@@ -217,27 +197,27 @@
     text-rendering: optimizelegibility;
   }
   h1 {
-    font-size: 2.4em;
+    font-size: 32px;
+    line-height: 1.25;
   }
-  h1 {
-    line-height: 1.4;
+  h2 {
+    font-size: 24px;
+    line-height: 1.3;
   }
   h3 {
-    font-size: 1.8em;
+    font-size: 20px;
+    line-height: 1.35;
   }
-  h3,
   h4 {
+    font-size: 18px;
     line-height: 1.4;
   }
-  h4 {
-    font-size: 1.6em;
-  }
   h6 {
-    font-size: 1.1em;
+    font-size: 14px;
     line-height: 1.4;
   }
   :where(p) {
-    margin-block: 0 1.2em;
+    margin-block: 0 1.4em;
   }
   :where(p:last-of-type) {
     margin-block-end: 0;
@@ -392,16 +372,18 @@
     width: 100%;
     z-index: 1000;
   }
-  .styled-button {
-    align-items: center;
-    border-width: 0;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    letter-spacing: 0.5px;
-    padding: 0.5em 1em;
-    text-align: center;
-  }
+.styled-button {
+  align-items: center;
+  border-width: 0;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  letter-spacing: 0.5px;
+  padding: 0.5em 1em;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+}
   
   .styled-button.bg-dark {
     color: #fff;
@@ -419,8 +401,8 @@
   }
   :where(.form-element) label {
     color: inherit;
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
     letter-spacing: 0.4px;
     text-transform: uppercase;
   }
@@ -511,7 +493,7 @@
   .logo-element {
     color: currentcolor;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1;
   }
   .logo-element img {
@@ -702,15 +684,18 @@
   }
 }
 body {
-  font-family: "Ubuntu";
+  font-family: "Ubuntu", sans-serif;
   font-weight: 400;
 }
 h1,
+h2,
 h3,
 h4,
+h5,
 h6 {
   color: #171717;
-  font-family: "Ubuntu";
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
 }
 h3 {
   color: #ff5722;
@@ -720,22 +705,49 @@ h3 {
 h6 {
   color: #ff9800;
 }
+strong,
+b {
+  font-weight: 500;
+}
 :where(.icon-box .content) a,
 :where(.content-text) a {
-  color: currentcolor;
-  font-weight: 600;
-  letter-spacing: 1px;
+  color: #ff9800;
+  font-weight: 500;
+  letter-spacing: 0.3px;
   text-shadow: none;
   transition: color 0.2s ease-in-out;
 }
 :where(main, footer) a {
-  font-weight: 600;
-  letter-spacing: 1px;
+  color: #ff9800;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   transition: color 0.2s ease-in-out;
 }
 :where(main, footer) a:hover,
 :where(main, footer) a:focus {
-  color: #ff9800;
+  color: #ffb347;
+}
+@media (max-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 26px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  :where(p) {
+    margin-block: 0 1.6em;
+  }
+  main > .content-section {
+    padding-block: 96px;
+  }
+  #hero-text {
+    width: 100%;
+  }
 }
 :root {
   --semantic-color-ca50b5: #f5f5f5;
@@ -780,11 +792,21 @@ h6 {
   #nav-menu-element {
     display: flex;
     flex: 1;
-    font-weight: 600;
+    font-weight: 500;
     justify-content: center;
     letter-spacing: 1px;
     margin-right: 0;
     order: 1;
+  }
+  #nav-menu-element .nav-menu-wrapper a {
+    color: #1f1f1f;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+  #nav-menu-element .nav-menu-wrapper a:hover,
+  #nav-menu-element .nav-menu-wrapper a:focus {
+    color: #ff9800;
   }
   #header-container {
     align-items: center;
@@ -802,9 +824,11 @@ h6 {
   margin-bottom: 20px;
   text-align: center;
   text-transform: uppercase;
+  font-weight: 500;
 }
 #hero-title {
-  line-height: 1.2em;
+  font-size: 32px;
+  line-height: 1.25;
   text-align: center;
   text-transform: capitalize;
   color: #ffffff;
@@ -812,12 +836,12 @@ h6 {
 }
 @media (max-width: 991px) {
   #hero-title {
-    font-size: 60px;
+    font-size: 32px;
   }
 }
 @media (max-width: 767px) {
   #hero-title {
-    font-size: 45px;
+    font-size: 26px;
   }
 }
 #hero-text {
@@ -826,8 +850,8 @@ h6 {
 }
 #hero-text {
   color: #f5f5f5;
-  font-size: 14px;
-  line-height: 1.8em;
+  font-size: inherit;
+  line-height: 1.65;
   text-align: center;
   text-shadow: 3px 3px 2px #212121;
 }
@@ -848,10 +872,10 @@ h6 {
 }
 #info-box-1 h4 {
   color: #30354a;
-  font-family: "Open Sans";
+  font-family: "Ubuntu", sans-serif;
   font-size: 18px;
-  font-weight: 600;
-  line-height: 1.3em;
+  font-weight: 700;
+  line-height: 1.3;
 }
 #info-box-1:hover {
   box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.19);
@@ -859,8 +883,8 @@ h6 {
 }
 #info-box-1 .content {
   color: #919191;
-  font-family: "Open Sans";
-  font-size: 13px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: inherit;
   font-weight: 400;
   padding-bottom: 30px;
 }
@@ -870,10 +894,10 @@ h6 {
   border-width: 0 0 1px;
   color: #3d30ba;
   display: none;
-  font-family: "Open Sans";
-  font-size: 12px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.3px;
   line-height: 1em;
   margin-top: -40px;
   padding: 0 5px 5px;
@@ -910,10 +934,10 @@ h6 {
 }
 #info-box-2 h4 {
   color: #30354a;
-  font-family: "Open Sans";
+  font-family: "Ubuntu", sans-serif;
   font-size: 18px;
-  font-weight: 600;
-  line-height: 1.3em;
+  font-weight: 700;
+  line-height: 1.3;
 }
 #info-box-2:hover {
   box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.2);
@@ -921,8 +945,8 @@ h6 {
 }
 #info-box-2 .content {
   color: #919191;
-  font-family: "Open Sans";
-  font-size: 13px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: inherit;
   font-weight: 400;
   padding-bottom: 30px;
 }
@@ -932,10 +956,10 @@ h6 {
   border-width: 0 0 1px;
   color: #3d30ba;
   display: none;
-  font-family: "Open Sans";
-  font-size: 12px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.3px;
   line-height: 1em;
   margin-top: -40px;
   padding: 0 5px 5px;
@@ -973,10 +997,10 @@ h6 {
 }
 #info-box-3 h4 {
   color: #30354a;
-  font-family: "Open Sans";
+  font-family: "Ubuntu", sans-serif;
   font-size: 18px;
-  font-weight: 600;
-  line-height: 1.3em;
+  font-weight: 700;
+  line-height: 1.3;
 }
 #info-box-3:hover {
   box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.2);
@@ -984,15 +1008,15 @@ h6 {
 }
 #info-box-3 .content {
   color: #919191;
-  font-family: "Open Sans";
-  font-size: 13px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: inherit;
   font-weight: 400;
   padding-bottom: 30px;
 }
 .orangeLink {
   color: currentcolor !important;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
   transition: color 0.2s ease-in-out;
 }
 .orangeLink:hover,
@@ -1009,10 +1033,10 @@ h6 {
   border-width: 0 0 1px;
   color: #3d30ba;
   display: none;
-  font-family: "Open Sans";
-  font-size: 12px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.3px;
   line-height: 1em;
   margin-top: -40px;
   padding: 0 5px 5px;
@@ -1196,7 +1220,7 @@ h6 {
   border: 1px solid #ff9800;
   border-radius: 999px;
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
 }
 .button-primary:hover,
@@ -1210,7 +1234,7 @@ h6 {
   border: 1px solid #3d30ba;
   border-radius: 999px;
   color: #3d30ba;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
 }
 .button-secondary:hover,
@@ -1301,10 +1325,10 @@ h6 {
 }
 #meetup-intro {
   color: var(--semantic-color-4f2343);
-  font-family: "Ubuntu";
+  font-family: "Ubuntu", sans-serif;
   font-weight: 500;
-  letter-spacing: 1.5px;
-  line-height: 2;
+  letter-spacing: 0.2px;
+  line-height: 1.65;
 }
 #meetup-image {
   margin: auto;
@@ -1435,7 +1459,7 @@ h6 {
   padding: 15px;
 }
 #footer-heading {
-  font-weight: 200;
+  font-weight: 500;
   margin-right: 16px;
   text-shadow: 0.2px 0.2px 2px #424242;
   text-wrap: nowrap;
