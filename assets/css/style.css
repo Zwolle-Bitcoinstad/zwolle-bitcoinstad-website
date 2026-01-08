@@ -1642,6 +1642,134 @@ b {
   overflow: hidden;
 }
 
+#bedrijven-hero .bedrijven-hero-block {
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+#bedrijven-hero .bedrijven-hero-text {
+  max-width: 760px;
+}
+
+.bedrijven-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+#bedrijven-why .bedrijven-features {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 24px;
+}
+
+.bedrijven-feature {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 15, 15, 0.08);
+  padding: 24px;
+}
+
+.bedrijven-feature h3 {
+  margin-bottom: 12px;
+}
+
+.bedrijven-steps {
+  counter-reset: bedrijf-step;
+  display: grid;
+  gap: 24px;
+  list-style: none;
+  margin: 32px 0;
+  padding: 0;
+}
+
+.bedrijven-steps li {
+  border-left: 4px solid #f39200;
+  padding-left: 20px;
+  position: relative;
+}
+
+.bedrijven-steps li::before {
+  background: #f39200;
+  border-radius: 999px;
+  color: #fff;
+  content: counter(bedrijf-step);
+  counter-increment: bedrijf-step;
+  font-weight: 700;
+  height: 28px;
+  left: -16px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 28px;
+}
+
+.bedrijven-coinos {
+  background: #fff5e6;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.bedrijven-list {
+  display: grid;
+  gap: 8px;
+  list-style: disc;
+  margin: 12px 0 20px 18px;
+}
+
+.bedrijven-faq {
+  gap: 16px;
+}
+
+.bedrijven-faq details {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 16px 20px;
+}
+
+.bedrijven-faq summary {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  list-style: none;
+}
+
+.bedrijven-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.bedrijven-faq details[open] summary {
+  margin-bottom: 12px;
+}
+
+.bedrijven-note {
+  font-style: italic;
+  margin-top: 12px;
+}
+
+.bedrijven-important,
+.bedrijven-warning {
+  margin-top: 8px;
+}
+
+.bedrijven-directory-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+@media (max-width: 900px) {
+  #bedrijven-why .bedrijven-features {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* BTC Map iframe styling */
 #btcmap {
   width: 100%;
