@@ -902,26 +902,6 @@ b {
   font-weight: 400;
   padding-bottom: 30px;
 }
-#read-more-btn {
-  align-self: center;
-  border: solid rgba(69, 49, 196, 0.1);
-  border-width: 0 0 1px;
-  color: #3d30ba;
-  display: none;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  line-height: 1em;
-  margin-top: -40px;
-  padding: 0 5px 5px;
-  text-transform: uppercase;
-  transition: all 0.3s ease-in;
-}
-#read-more-btn:hover {
-  color: #752df0;
-  transition: all 0.3s ease-in;
-}
 #button-container-1 {
   flex-shrink: 0;
   width: 30%;
@@ -963,26 +943,6 @@ b {
   font-size: inherit;
   font-weight: 400;
   padding-bottom: 30px;
-}
-#info-btn {
-  align-self: center;
-  border: solid rgba(69, 49, 196, 0.1);
-  border-width: 0 0 1px;
-  color: #3d30ba;
-  display: none;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  line-height: 1em;
-  margin-top: -40px;
-  padding: 0 5px 5px;
-  text-transform: uppercase;
-  transition: all 0.3s ease-in;
-}
-#info-btn:hover {
-  color: #752df0;
-  transition: all 0.3s ease-in;
 }
 #button-container-2 {
   flex-shrink: 0;
@@ -1040,26 +1000,6 @@ b {
 .orangeLink.telegram-link:hover,
 .orangeLink.telegram-link:focus {
   color: #ff9800 !important;
-}
-#cta-button-1 {
-  align-self: center;
-  border: solid rgba(69, 49, 196, 0.1);
-  border-width: 0 0 1px;
-  color: #3d30ba;
-  display: none;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  line-height: 1em;
-  margin-top: -40px;
-  padding: 0 5px 5px;
-  text-transform: uppercase;
-  transition: all 0.3s ease-in;
-}
-#cta-button-1:hover {
-  color: #752df0;
-  transition: all 0.3s ease-in;
 }
 #info-section-3 {
   flex-shrink: 0;
@@ -1255,20 +1195,6 @@ b {
 .button-secondary:focus {
   border-color: #752df0;
   color: #752df0;
-}
-#read-more-btn,
-#info-btn,
-#cta-button-1 {
-  display: inline-flex;
-  margin-top: 10px;
-}
-#read-more-btn.button-secondary,
-#info-btn.button-secondary,
-#cta-button-1.button-secondary {
-  border-width: 1px;
-  letter-spacing: 0.5px;
-  padding: 0.4em 1.2em;
-  text-transform: none;
 }
 #zwolle-proof {
   background-color: #fff;
