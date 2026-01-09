@@ -1644,7 +1644,7 @@ b {
 
 /* Blogs page */
 .page-blogs {
-  background-color: #fefdfb;
+  background-color: #fff;
 }
 
 .blogs-hero-block {
@@ -1672,6 +1672,7 @@ b {
 .blogs-intro {
   background: #fff;
   border: 1px solid #ececec;
+  border-left: 4px solid #ff9800;
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 32px;
@@ -1733,6 +1734,7 @@ b {
 
 .blog-card.featured {
   border-color: #ffd64f;
+  border-left: 4px solid #ff9800;
   background: #fff9e8;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
 }
@@ -1793,21 +1795,9 @@ b {
   gap: 12px;
 }
 
-.blog-button {
-  border-radius: 999px;
-  border: 1px solid #263238;
+.blog-cta .content-button {
   font-size: 14px;
   padding: 10px 18px;
-}
-
-.blog-button.primary {
-  background: #263238;
-  color: #fff;
-}
-
-.blog-button.secondary {
-  background: #fff;
-  color: #263238;
 }
 
 #bedrijven-hero .bedrijven-hero-block {
