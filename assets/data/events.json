@@ -1,0 +1,45 @@
+[
+  {
+    "id": "meetup-2025-11",
+    "title": "Bitcoin inloopavond Zwolle",
+    "type": "meetup",
+    "start": "2025-11-12T19:30:00+01:00",
+    "end": "2025-11-12T22:00:00+01:00",
+    "venue": "Stadsbrasserie De Hofvlietvilla",
+    "address": "Bergkloosterweg 6",
+    "city": "Zwolle",
+    "description": "Ontspannen meetup om bij te praten, vragen te stellen en nieuwe mensen te leren kennen. Beginners zijn welkom.",
+    "rsvp_url": "https://www.meetup.com/bitcoinmeetup/",
+    "image": "assets/images/meetup-background.webp",
+    "price_note": "Gratis, drankjes op eigen rekening",
+    "tags": ["community", "beginner", "zwolle"]
+  },
+  {
+    "id": "workshop-2024-09",
+    "title": "Workshop: eerste sats in de praktijk",
+    "type": "workshop",
+    "start": "2024-09-18T19:00:00+02:00",
+    "end": "2024-09-18T21:00:00+02:00",
+    "venue": "Stadkamer Centrum",
+    "address": "Zeven Alleetjes 1A",
+    "city": "Zwolle",
+    "description": "Praktische avond over wallets, veilig bewaren en hoe je je eerste sats verstuurt.",
+    "rsvp_url": "https://t.me/zwollebitcoinstad",
+    "image": "assets/images/IMG_20240619_164149-scaled.webp",
+    "price_note": "Vrije inloop",
+    "tags": ["workshop", "wallets"]
+  },
+  {
+    "id": "meetup-2024-05",
+    "title": "Voorjaarsmeetup bij een lokale ondernemer",
+    "type": "meetup",
+    "start": "2024-05-15T20:00:00+02:00",
+    "venue": "Cafe Het Vliegende Paard",
+    "address": "Voorstraat 17",
+    "city": "Zwolle",
+    "description": "Informele borrel met korte update over wat er speelt in de Zwolse bitcoin-scene.",
+    "rsvp_url": "https://www.meetup.com/bitcoinmeetup/",
+    "price_note": "Eigen consumpties",
+    "tags": ["meetup", "borrel"]
+  }
+]
