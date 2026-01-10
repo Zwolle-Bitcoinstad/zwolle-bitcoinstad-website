@@ -873,6 +873,7 @@ b {
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 1px 1px 25px 0 rgba(0, 0, 0, 0.1);
+  height: 100%;
   padding: 40px;
   text-align: center;
   transition: all 0.3s ease-in;
@@ -896,13 +897,14 @@ b {
   transition: all 0.3s ease-in;
 }
 #info-box-1 .content {
-  color: #919191;
+  color: #000;
   font-family: "Ubuntu", sans-serif;
   font-size: inherit;
   font-weight: 400;
   padding-bottom: 30px;
 }
 #button-container-1 {
+  display: flex;
   flex-shrink: 0;
   width: 30%;
 }
@@ -915,6 +917,7 @@ b {
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 2px 2px 25px 0 rgba(0, 0, 0, 0.1);
+  height: 100%;
   padding: 40px;
   text-align: center;
   transition: all 0.3s ease-in;
@@ -938,13 +941,14 @@ b {
   transition: all 0.3s ease-in;
 }
 #info-box-2 .content {
-  color: #919191;
+  color: #000;
   font-family: "Ubuntu", sans-serif;
   font-size: inherit;
   font-weight: 400;
   padding-bottom: 30px;
 }
 #button-container-2 {
+  display: flex;
   flex-shrink: 0;
   width: 30%;
 }
@@ -958,6 +962,7 @@ b {
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 2px 2px 25px 0 rgba(0, 0, 0, 0.1);
+  height: 100%;
   padding: 40px;
   text-align: center;
   transition: all 0.3s ease-in;
@@ -981,7 +986,7 @@ b {
   transition: all 0.3s ease-in;
 }
 #info-box-3 .content {
-  color: #919191;
+  color: #000;
   font-family: "Ubuntu", sans-serif;
   font-size: inherit;
   font-weight: 400;
@@ -1002,6 +1007,7 @@ b {
   color: #ff9800 !important;
 }
 #info-section-3 {
+  display: flex;
   flex-shrink: 0;
   width: 30%;
 }
