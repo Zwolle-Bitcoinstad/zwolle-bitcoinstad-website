@@ -121,7 +121,7 @@ const createCard = (event) => {
 
   if (isExternalUrl(href)) {
     link.target = '_blank';
-    link.rel = 'noopener';
+    link.rel = 'noopener noreferrer';
   }
 
   footer.appendChild(link);

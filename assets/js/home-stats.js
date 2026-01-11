@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  const merchantCount = gallery.querySelectorAll('.layout-item').length;
+  const merchantTotal = Number(gallery.dataset.merchantTotal);
+  const merchantCount = Number.isFinite(merchantTotal) && merchantTotal > 0
+    ? merchantTotal
+    : gallery.querySelectorAll('.layout-item').length;
   countTarget.textContent = merchantCount.toString();
 });
