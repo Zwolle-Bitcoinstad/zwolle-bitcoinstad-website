@@ -48,6 +48,126 @@
   font-size: 0.85rem;
 }
 
+.zbs-agenda {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.zbs-agenda__header {
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+.zbs-agenda__header .content-text {
+  line-height: 1.7;
+}
+
+.zbs-agenda__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .zbs-agenda__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.zbs-agenda__card {
+  background: #ffffff;
+  border: 1px solid #e7e7e7;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.zbs-agenda__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.zbs-agenda__date {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--semantic-text-medium);
+}
+
+.zbs-agenda__title {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--semantic-text-dark);
+}
+
+.zbs-agenda__badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.zbs-agenda__badge--meetup {
+  background: #fff1c2;
+  color: #7a5200;
+}
+
+.zbs-agenda__badge--workshop {
+  background: #e8f5ff;
+  color: #0072a6;
+}
+
+.zbs-agenda__badge--special {
+  background: #f1e9ff;
+  color: #5a3b88;
+}
+
+.zbs-agenda__location {
+  margin: 0;
+  color: var(--semantic-text-medium);
+  font-size: 0.98rem;
+}
+
+.zbs-agenda__description {
+  margin: 0;
+  color: var(--semantic-text-dark);
+  line-height: 1.65;
+}
+
+.zbs-agenda__footer {
+  margin-top: auto;
+}
+
+.zbs-agenda__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #e0e0e0;
+  background: #f6f6f6;
+  color: #9b9b9b;
+  font-weight: 600;
+  font-size: 0.85rem;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.zbs-agenda__tip {
+  margin-top: 24px;
+  color: var(--semantic-text-medium);
+  font-weight: 500;
+}
+
 .meetup-section {
   padding-top: 64px;
   padding-bottom: 64px;
