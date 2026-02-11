@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "wrangler pages dev .",
     "deploy": "wrangler pages deploy .",
-    "build": "echo 'Static site - no build needed'"
+    "build": "echo 'Static site - no build needed'",
+    "check:links": "node scripts/check-link-behavior.js && node scripts/check-link-markup.js"
   },
   "dependencies": {
     "@cloudflare/pages-plugin-static-forms": "^1.0.0"
