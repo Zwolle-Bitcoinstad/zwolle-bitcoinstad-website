@@ -1,239 +1,106 @@
 const EVENTS_URL = '/assets/data/events.json';
 
-const upcomingGrid = document.querySelector('[data-events-grid="upcoming"]');
-const pastGrid = document.querySelector('[data-events-grid="past"]');
-const upcomingEmpty = document.querySelector('[data-events-empty="upcoming"]');
-const pastEmpty = document.querySelector('[data-events-empty="past"]');
-
-const DATE_FORMATTER = new Intl.DateTimeFormat('nl-NL', {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  timeZone: 'Europe/Amsterdam',
-});
-
-const TIME_FORMATTER = new Intl.DateTimeFormat('nl-NL', {
-  hour: '2-digit',
-  minute: '2-digit',
-  timeZone: 'Europe/Amsterdam',
-});
-
-const TYPE_LABELS = {
-  meetup: 'Meetup',
-  workshop: 'Workshop',
-  anders: 'Anders',
+const grids = {
+  upcoming: document.querySelector('[data-events-grid="upcoming"]'),
+  year: document.querySelector('[data-events-grid="year"]'),
+  past: document.querySelector('[data-events-grid="past"]'),
 };
 
-const DEFAULT_FALLBACK_URL = 'https://t.me/zwollebitcoinstad';
-
-const formatDateRange = (startDate, endDate) => {
-  const startDateLabel = DATE_FORMATTER.format(startDate);
-  const startTimeLabel = TIME_FORMATTER.format(startDate);
-
-  if (!endDate) {
-    return `${startDateLabel} · ${startTimeLabel}`;
-  }
-
-  const endDateLabel = DATE_FORMATTER.format(endDate);
-  const endTimeLabel = TIME_FORMATTER.format(endDate);
-
-  if (startDateLabel === endDateLabel) {
-    return `${startDateLabel} · ${startTimeLabel}–${endTimeLabel}`;
-  }
-
-  return `${startDateLabel} ${startTimeLabel} – ${endDateLabel} ${endTimeLabel}`;
+const empties = {
+  upcoming: document.querySelector('[data-events-empty="upcoming"]'),
+  year: document.querySelector('[data-events-empty="year"]'),
+  past: document.querySelector('[data-events-empty="past"]'),
 };
 
-const isExternalUrl = (url) => {
-  try {
-    return new URL(url, window.location.origin).origin !== window.location.origin;
-  } catch (error) {
-    return false;
-  }
+const DATE_FORMATTER = new Intl.DateTimeFormat('nl-NL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Europe/Amsterdam' });
+const TIME_FORMATTER = new Intl.DateTimeFormat('nl-NL', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Amsterdam' });
+const TYPE_LABELS = { meetup: 'Meetup', workshop: 'Workshop', special: 'Special', anders: 'Special' };
+
+const formatDate = (start, end) => `${DATE_FORMATTER.format(start)} · ${TIME_FORMATTER.format(start)}${end ? `-${TIME_FORMATTER.format(end)}` : ''}`;
+
+const createIcsBlob = (event) => {
+  const dtStart = new Date(event.start).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  const dtEnd = (event.end ? new Date(event.end) : new Date(new Date(event.start).getTime() + 2 * 3600000)).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  const content = ['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT',`UID:${event.id}@zwollebitcoinstad.nl`,`DTSTAMP:${dtStart}`,`DTSTART:${dtStart}`,`DTEND:${dtEnd}`,`SUMMARY:${event.title}`,`LOCATION:${event.venue || 'Zwolle'}`,`DESCRIPTION:${event.description || 'Bitcoin meetup in Zwolle'}`,'END:VEVENT','END:VCALENDAR'].join('\n');
+  return new Blob([content], { type: 'text/calendar;charset=utf-8' });
 };
 
 const createCard = (event) => {
   const card = document.createElement('article');
   card.className = 'meetup-card';
 
-  if (event.image) {
-    const image = document.createElement('img');
-    image.className = 'meetup-card-image';
-    image.src = event.image.startsWith('http') ? event.image : `/${event.image.replace(/^\//, '')}`;
-    image.alt = event.title;
-    image.loading = 'lazy';
-    card.appendChild(image);
-  }
-
   const body = document.createElement('div');
   body.className = 'meetup-card-body';
 
   const badge = document.createElement('span');
-  const typeKey = (event.type || 'anders').toLowerCase();
-  const normalizedType = TYPE_LABELS[typeKey] ? typeKey : 'anders';
-  badge.className = `meetup-badge meetup-badge--${normalizedType}`;
-  badge.textContent = TYPE_LABELS[normalizedType];
+  const type = (event.type || 'meetup').toLowerCase();
+  const normalized = TYPE_LABELS[type] ? type : 'anders';
+  badge.className = `meetup-badge meetup-badge--${normalized === 'special' ? 'anders' : normalized}`;
+  badge.textContent = TYPE_LABELS[normalized];
   body.appendChild(badge);
 
-  const title = document.createElement('h3');
-  title.className = 'meetup-card-title';
-  title.textContent = event.title;
-  body.appendChild(title);
-
-  const meta = document.createElement('div');
-  meta.className = 'meetup-card-meta';
-
-  const startDate = new Date(event.start);
-  const endDate = event.end ? new Date(event.end) : null;
-
-  const dateLine = document.createElement('span');
-  dateLine.textContent = formatDateRange(startDate, endDate);
-  meta.appendChild(dateLine);
-
-  const locationLine = document.createElement('span');
-  const venueText = event.venue ? event.venue : 'Locatie volgt';
-  const cityText = event.city ? event.city : 'Zwolle';
-  locationLine.textContent = `${venueText} · ${cityText}`;
-  meta.appendChild(locationLine);
-
-  if (event.address) {
-    const addressLine = document.createElement('span');
-    addressLine.textContent = event.address;
-    meta.appendChild(addressLine);
-  }
-
-  body.appendChild(meta);
-
-  const description = document.createElement('p');
-  description.className = 'meetup-card-description';
-  description.textContent = event.description;
-  body.appendChild(description);
+  body.insertAdjacentHTML('beforeend', `<h3 class="meetup-card-title">${event.title}</h3><div class="meetup-card-meta"><span>${formatDate(new Date(event.start), event.end ? new Date(event.end) : null)}</span><span>${event.venue || 'Locatie volgt'} · ${event.city || 'Zwolle'}</span></div><p class="meetup-card-description">${event.description || ''}</p>`);
 
   const footer = document.createElement('div');
   footer.className = 'meetup-card-footer';
 
-  const link = document.createElement('a');
-  const href = event.rsvp_url || DEFAULT_FALLBACK_URL;
-  link.href = href;
-  link.className = 'content-button styled-button button-primary';
-  link.textContent = 'Bekijk details';
-
-  if (isExternalUrl(href)) {
+  if (event.rsvp_url) {
+    const link = document.createElement('a');
+    link.href = event.rsvp_url;
+    link.className = 'content-button styled-button button-primary';
+    link.textContent = 'Bekijk event';
     link.target = '_blank';
     link.rel = 'noopener';
+    footer.appendChild(link);
+  } else {
+    const placeholder = document.createElement('span');
+    placeholder.className = 'zbs-agenda__link';
+    placeholder.textContent = 'Link volgt';
+    footer.appendChild(placeholder);
   }
 
-  footer.appendChild(link);
-
-  if (event.price_note) {
-    const price = document.createElement('span');
-    price.className = 'meetup-card-price';
-    price.textContent = event.price_note;
-    footer.appendChild(price);
-  }
+  const ics = document.createElement('a');
+  ics.href = URL.createObjectURL(createIcsBlob(event));
+  ics.download = `${event.id}.ics`;
+  ics.className = 'content-button styled-button button-secondary';
+  ics.textContent = 'Zet in je agenda';
+  footer.appendChild(ics);
 
   body.appendChild(footer);
   card.appendChild(body);
-
   return card;
 };
 
-const renderEvents = (events, grid, emptyMessage) => {
+const render = (events, key) => {
+  const grid = grids[key];
+  const empty = empties[key];
+  if (!grid || !empty) return;
   grid.innerHTML = '';
-
   if (!events.length) {
-    emptyMessage.hidden = false;
+    empty.hidden = false;
     return;
   }
-
-  emptyMessage.hidden = true;
-
-  events.forEach((event) => {
-    grid.appendChild(createCard(event));
-  });
+  empty.hidden = true;
+  events.forEach((event) => grid.appendChild(createCard(event)));
 };
 
-const buildJsonLd = (events) => {
-  if (!events.length) {
-    return;
-  }
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': events.map((event) => {
-      const venueName = event.venue || 'Zwolle Bitcoinstad';
-      const cityName = event.city || 'Zwolle';
-      const data = {
-        '@type': 'Event',
-        name: event.title,
-        startDate: event.start,
-        location: {
-          '@type': 'Place',
-          name: venueName,
-          address: {
-            '@type': 'PostalAddress',
-            streetAddress: event.address || cityName,
-            addressLocality: cityName,
-            addressCountry: 'NL',
-          },
-        },
-      };
-
-      if (event.end) {
-        data.endDate = event.end;
-      }
-
-      if (event.description) {
-        data.description = event.description;
-      }
-
-      if (event.rsvp_url) {
-        data.url = event.rsvp_url;
-      }
-
-      if (event.image) {
-        const absoluteImage = new URL(event.image.replace(/^\//, ''), window.location.origin);
-        data.image = absoluteImage.toString();
-      }
-
-      return data;
-    }),
-  };
-
-  const script = document.createElement('script');
-  script.type = 'application/ld+json';
-  script.textContent = JSON.stringify(jsonLd);
-  document.head.appendChild(script);
-};
-
-const loadEvents = async () => {
-  try {
-    const response = await fetch(EVENTS_URL);
-    if (!response.ok) {
-      throw new Error('Events ophalen mislukt.');
-    }
-
-    const events = await response.json();
+fetch(EVENTS_URL)
+  .then((response) => response.json())
+  .then((events) => {
     const now = new Date();
+    const upcoming = events.filter((event) => new Date(event.start) >= now).sort((a, b) => new Date(a.start) - new Date(b.start));
+    const year = events.filter((event) => new Date(event.start).getFullYear() === 2026).sort((a, b) => new Date(a.start) - new Date(b.start));
+    const past = events.filter((event) => new Date(event.start) < now).sort((a, b) => new Date(b.start) - new Date(a.start));
 
-    const upcoming = events
-      .filter((event) => new Date(event.start) >= now)
-      .sort((a, b) => new Date(a.start) - new Date(b.start));
-
-    const past = events
-      .filter((event) => new Date(event.start) < now)
-      .sort((a, b) => new Date(b.start) - new Date(a.start));
-
-    renderEvents(upcoming, upcomingGrid, upcomingEmpty);
-    renderEvents(past, pastGrid, pastEmpty);
-
-    buildJsonLd(upcoming.slice(0, 3));
-  } catch (error) {
-    upcomingEmpty.hidden = false;
-    upcomingEmpty.textContent = 'We konden de agenda nu even niet laden. Probeer het later opnieuw.';
-    pastEmpty.hidden = false;
-  }
-};
-
-loadEvents();
+    render(upcoming, 'upcoming');
+    render(year, 'year');
+    render(past, 'past');
+  })
+  .catch(() => {
+    Object.values(empties).forEach((empty) => {
+      if (empty) {
+        empty.hidden = false;
+        empty.textContent = 'Agenda kon niet geladen worden. Probeer later opnieuw.';
+      }
+    });
+  });

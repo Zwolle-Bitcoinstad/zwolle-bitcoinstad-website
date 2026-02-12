@@ -1,194 +1,41 @@
-/* ============================================
-   ONDERNEMER GRID - POLAROID STIJL
-   ============================================ */
-
 .ondernemer-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding: 20px 0;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
   list-style: none;
   margin: 0;
+  padding: 16px 0 0;
 }
 
-.ondernemer-grid li {
-  /* Geen extra styling */
-}
+.ondernemer-grid li { margin: 0; }
 
 .ondernemer-grid a {
   display: block;
-  background: #FAFAF8; 
-  padding: 8px 8px 0 8px; /* Smalle rand boven/links/rechts */
-  border-radius: 3px; 
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  padding: 16px;
+  color: #171717;
   text-decoration: none;
-  color: #333;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12), 
-              0 8px 16px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
 }
 
-.ondernemer-grid a:hover {
-  transform: translateY(-6px) rotate(0.5deg); /* Lichte tilt effect */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), 
-              0 12px 24px rgba(0, 0, 0, 0.12);
-}
+.ondernemer-grid a:hover { transform: translateY(-2px); }
 
-/* Afbeeldingen - enhance plaatjes */
-.ondernemer-grid img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  
-  /* foto-verbetering */
-  filter: brightness(1.05) contrast(1.08) saturate(1.1);
-  transition: filter 0.3s ease;
-}
-
-.ondernemer-grid a:hover img {
-  filter: brightness(1.08) contrast(1.12) saturate(1.15);
-}
-
-/* Business naam in de polaroid-rand onderaan */
 .business-name {
   display: block;
-  padding: 16px 8px 14px 8px; /* Dikke rand onderaan voor tekst */
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.2;
-  color: #333;
-  background: #FAFAF8; /* Zelfde als polaroid */
-}
-
-.ondernemer-grid a:hover .business-name {
-  color: #F7931A;
-}
-
-/* ============================================
-   DUMMY "VOEG JE ZAAK TOE" 
-   ============================================ */
-
-.dummy-business-card a {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch; /* Volledige breedte */
-  justify-content: flex-start;
-  background: linear-gradient(135deg, #F7931A 0%, #FF6B35 100%);
-  border: none;
-  border-radius: 3px;
-  padding: 8px 8px 20px 8px; 
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(247, 147, 26, 0.3), 
-              0 8px 16px rgba(247, 147, 26, 0.2);
-  transition: all 0.3s ease;
-}
-
-.dummy-business-card a:hover {
-  background: linear-gradient(135deg, #FF6B35 0%, #F7931A 100%);
-  box-shadow: 0 6px 16px rgba(247, 147, 26, 0.4), 
-              0 12px 24px rgba(247, 147, 26, 0.3);
-  transform: translateY(-6px) rotate(-0.5deg);
-}
-
-.dummy-business-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  aspect-ratio: 4 / 3; /* Zelfde verhouding als foto */
-  padding: 20px;
-}
-
-.dummy-business-placeholder svg {
-  margin: 0 auto 14px;
-  opacity: 0.95;
-  animation: pulse 2s ease-in-out infinite;
-  flex-shrink: 0;
-}
-
-.dummy-business-placeholder p {
-  margin: 5px 0;
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.dummy-business-placeholder strong {
-  font-size: 16px;
-  display: block;
+  font-size: 1rem;
+  font-weight: 700;
   margin-bottom: 4px;
 }
 
-/* Dummy "naam" onderaan - zelfde stijl als business-name */
-.dummy-business-card .business-name {
-  background: transparent; /* Oranje blijft door */
-  color: white;
-  padding: 16px 8px 14px 8px;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.2;
-  opacity: 0; /* Onzichtbaar maar neemt wel ruimte in */
+.business-type {
+  display: block;
+  font-size: .88rem;
+  color: #666;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.95;
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 1;
-  }
-}
-
-
-/* ============================================
-   RESPONSIVE AANPASSINGEN
-   ============================================ */
-
-/* Op grote schermen: 4 kolommen */
-@media (min-width: 1200px) {
-  .ondernemer-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Op tablets: 3 kolommen */
-@media (max-width: 900px) {
-  .ondernemer-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-}
-
-/* Op kleine tablets/grote phones: 2 kolommen */
-@media (max-width: 600px) {
-  .ondernemer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  
-  .business-name {
-    font-size: 14px;
-    padding: 14px 6px 12px 6px;
-  }
-  
-  .dummy-business-card .business-name {
-    padding: 14px 6px 12px 6px;
-  }
-}
-
-/* Op hele kleine phones: 1 kolom */
-@media (max-width: 400px) {
-  .ondernemer-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .business-name {
-    font-size: 13px;
-  }
+.dummy-business-card a {
+  border-style: dashed;
+  text-align: center;
 }

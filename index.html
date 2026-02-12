@@ -62,10 +62,10 @@
 	<a class="skip-link" href="index.html#site-footer">Ga naar footer</a>
 	<header id="site-header">
 		<div id="header-section" class="content-section">
-			<div id="header-container" class="content-container"><a id="logo-element" class="logo-element" href="index.html"><img
+			<div id="header-container" class="content-container"><div class="header-meta"><a id="logo-element" class="logo-element" href="index.html"><img
 						width="483" height="640" src="assets/images/logo.webp" class="site-logo css-filter"
 						alt="Zwolle Bitcoinstad" loading="eager" decoding="async" fetchpriority="high"
-						srcset="assets/images/logo.webp 226w" sizes="(max-width: 480px) 60px, 72px"></a>
+						srcset="assets/images/logo.webp 226w" sizes="(max-width: 480px) 60px, 72px"></a><span class="bitcoin-only-badge">Bitcoin-only</span></div>
 				<div id="nav-menu-element" data-script-id="qrpkjg" class="nav-menu">
 					<nav class="nav-menu-wrapper mobile_landscape">
 						<ul id="menu-headermenu" class="nav-menu">
@@ -95,24 +95,6 @@
 					</button>
 					<nav class="mobile-menu-wrapper right">
 						<ul id="menu-headermenu-1" class="mobile-menu">
-							<li
-								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-styled is-active">
-								<a href="https://zwollebitcoinstad.nl">Home</a></li>
-							<li
-								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-43 menu-item-styled">
-								<a href="https://btcmap.org/community/zwolle-bitcoinstad/merchants">BTCMap</a></li>
-							<li
-								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-706 menu-item-styled">
-								<a href="https://zwollebitcoinstad.nl/meetup/">Meetup</a></li>
-							<li
-								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-707 menu-item-styled">
-								<a href="https://bitcoinwiki.nl/wiki/Hoofdpagina">Bitcoin wiki</a></li>
-							<li
-								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-910 menu-item-styled">
-								<a href="blogs.html">Blogs</a></li>
-							<li
-								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-900 menu-item-styled">
-								<a href="bedrijven.html">Bedrijven</a></li>
 						</ul>
 					</nav>
 					<div class="mobile-menu-overlay"></div>
@@ -125,17 +107,33 @@
 			<div id="main-container" class="content-container">
 				<div id="main-content-block" class="content-block">
 					<div id="hero-container" class="content-container">
-						<h6 id="hero-subtitle" class="content-heading">Welkom in <br></h6>
+						<p id="hero-subtitle" class="content-heading">Welkom in</p>
 						<h1 id="hero-title" class="content-heading text-primary">Zwolle Bitcoinstad</h1>
 						<div id="hero-text" class="content-text">
-							<p>De lokale Bitcoin-community voor Zwolle en omgeving. Voor bewoners die willen leren,
-								en ondernemers die Bitcoin willen accepteren.</p>
-							<p>Sluit aan bij de meetup of zet je zaak op de kaart als Bitcoin-vriendelijke ondernemer.</p>
+							<p>Bitcoin-community voor Zwolle: leer, gebruik en bouw lokaal mee.</p>
+							<p>Geen altcoins, geen trading-hype — alleen praktische Bitcoin-kennis.</p>
 						</div>
-						<div id="hero-cta" class="content-container">
-							<a class="content-button styled-button button-primary" href="https://zwollebitcoinstad.nl/meetup/">Bezoek de meetup</a>
-							<a class="content-button styled-button button-primary"
-								href="bedrijven.html">Bitcoin accepteren</a>
+						<div id="hero-cta" class="content-container primary-cta-strip">
+							<a class="content-button styled-button button-primary" href="https://zwollebitcoinstad.nl/meetup/">Kom naar de meetup</a>
+							<a class="content-button styled-button button-primary" href="bedrijven.html">Bitcoin accepteren</a>
+							<a class="content-button styled-button button-secondary" href="https://btcmap.org/community/zwolle-bitcoinstad/merchants" target="_blank" rel="noopener">Waar kan ik betalen?</a>
+						</div>
+						<div class="quick-links" aria-label="Snel starten">
+							<article class="quick-link-card">
+								<h3>Eerstvolgende meetup</h3>
+								<p>Bekijk datum en locatie op de agenda.</p>
+								<p><a href="meetup/">Zie agenda</a></p>
+							</article>
+							<article class="quick-link-card">
+								<h3>Bedrijven die Bitcoin accepteren</h3>
+								<p>Vind winkels, horeca en diensten in Zwolle.</p>
+								<p><a href="bedrijven.html">Bekijk bedrijven</a></p>
+							</article>
+							<article class="quick-link-card">
+								<h3>Beginners: start hier</h3>
+								<p>Basisuitleg via Bitcoin Wiki en Bitcoin School.</p>
+								<p><a href="https://bitcoinwiki.nl/wiki/Hoofdpagina" target="_blank" rel="noopener">Start met leren</a></p>
+							</article>
 						</div>
 						<div id="hero-buttons" class="content-container">
 							<div id="button-container-1" class="content-container">
@@ -266,7 +264,7 @@
 					<div class="zwolle-proof-cta">
 						<a class="content-button styled-button button-primary" href="https://zwollebitcoinstad.nl/meetup/">Kom naar de meetup</a>
 						<a class="content-button styled-button button-primary" href="index.html#ondernemers"
-							data-anchor="true">Word Bitcoin-ondernemer</a>
+							data-anchor="true">Bitcoin accepteren</a>
 					</div>
 				</div>
 			</div>
@@ -292,190 +290,7 @@
 			</div>
 		</div>
 		
-		<ul class="ondernemer-grid">
-			<li>
-				<a href="https://www.pannenkoekschipzwolle.nl/" target="_blank">
-					<img width="200" height="150" 
-						src="assets/images/pannenkoekschip-200w.webp"
-						alt="'t Pannenkoekschip restaurant" 
-						loading="lazy"
-						srcset="assets/images/pannenkoekschip-200w.webp 200w, assets/images/pannenkoekschip-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">'t Pannenkoekschip</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://www.smoothfruittherapy.nl/" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/SmoothFruitTherapy_Centrum-200w.webp"
-						alt="Smooth Fruit Therapy - locatie centrum - Grote Markt 1 Zwolle"
-						loading="lazy"
-						srcset="assets/images/SmoothFruitTherapy_Centrum-200w.webp 200w, assets/images/SmoothFruitTherapy_Centrum-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Smooth Fruit Therapy</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://www.spar.nl/winkels/spar-city-lubeckplein-147/" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/SparCityLubeckplein-200w.webp"
-						alt="Spar City, station Zwolle - Lübeckplein 19"
-						loading="lazy"
-						srcset="assets/images/SparCityLubeckplein-200w.webp 200w, assets/images/SparCityLubeckplein-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Spar (NS Station)</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://www.purazengym.nl/" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/PurazenGym-200w.webp"
-						alt="Purazen Gym - Werkerlaan 5-B (wijk Stadshagen)"
-						loading="lazy"
-						srcset="assets/images/PurazenGym-200w.webp 200w, assets/images/PurazenGym-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Purazen Gym</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://www.hetweeshuys.nl/het-eethuys-afhaal" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/HetEethuys-200w.webp"
-						alt="Cafetaria Het Eethuys - Assendorperstraat 24"
-						loading="lazy"
-						srcset="assets/images/HetEethuys-200w.webp 200w, assets/images/HetEethuys-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Cafetaria Het Eethuys</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://www.hetweeshuys.nl/" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/HetWeeshuys-200w.webp"
-						alt="Het Weeshuys - Eten en Drinken"
-						loading="lazy"
-						srcset="assets/images/HetWeeshuys-200w.webp 200w, assets/images/HetWeeshuys-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Het Weeshuys</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://www.istanbulzwolle.nl/" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/Istanbul-Grillroom-Pizza-200w.webp"
-						alt="Istanbul Grillroom & Pizza - Zwolle"
-						loading="lazy"
-						srcset="assets/images/Istanbul-Grillroom-Pizza-200w.webp 200w, assets/images/Istanbul-Grillroom-Pizza-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Istanbul Grillroom &amp; Pizza</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://www.spar.nl/winkels/spar-city-zwolle-oude-vismarkt-574/" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/SparCityCentrum-200w.webp"
-						alt="Spar City, Oude Vismarkt 46 (centrum)"
-						loading="lazy"
-						srcset="assets/images/SparCityCentrum-200w.webp 200w, assets/images/SparCityCentrum-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Spar (Centrum)</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://meneer-jan.nl/" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/meneerjan-200w.webp"
-						alt="Meneer Jan restaurant"
-						loading="lazy"
-						srcset="assets/images/meneerjan-200w.webp 200w, assets/images/meneerjan-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Meneer Jan</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://time4sushi.nl/sushi-zwolle/" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/Time4Sushi-200w.webp"
-						alt="Time 4 Sushi"
-						loading="lazy"
-						srcset="assets/images/Time4Sushi-200w.webp 200w, assets/images/Time4Sushi-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Time 4 Sushi</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://kinderhomeopathie.nl/" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/KinderHomeopathie-200w.webp"
-						alt="Kinder- en Gezinshomeopathie"
-						loading="lazy"
-						srcset="assets/images/KinderHomeopathie-200w.webp 200w, assets/images/KinderHomeopathie-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Kinderhomeopathie</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://mastersofmedia.nl/" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/MastersOfMedia-200w.webp"
-						alt="Masters of Media"
-						loading="lazy"
-						srcset="assets/images/MastersOfMedia-200w.webp 200w, assets/images/MastersOfMedia-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Masters of Media</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://effekt.nl/" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/EffektMedia-200w.webp"
-						alt="Effekt Media"
-						loading="lazy"
-						srcset="assets/images/EffektMedia-200w.webp 200w, assets/images/EffektMedia-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Effekt Media</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="https://coinatmradar.com/bitcoin_atm/72493/bitcoin-atm-lamassu-zwolle-onas-afros-beauty-hairshop/" target="_blank">
-					<img width="200" height="150"
-						src="assets/images/Bitcoin-ATM-200w.webp"
-						alt="Bitcoin ATM"
-						loading="lazy"
-						srcset="assets/images/Bitcoin-ATM-200w.webp 200w, assets/images/Bitcoin-ATM-300w.webp 300w"
-						sizes="200px">
-					<span class="business-name">Bitcoin ATM (pinautomaat)</span>
-				</a>
-			</li>
-			
-			<!-- Dummy ondernemer - laat deze altijd achteraan staan -->
-			<li class="dummy-business-card">
-				<a href="#contact">
-					<div class="dummy-business-placeholder">
-						<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<circle cx="12" cy="12" r="10"/>
-							<line x1="12" y1="8" x2="12" y2="16"/>
-							<line x1="8" y1="12" x2="16" y2="12"/>
-						</svg>
-						<p><strong>Accepteer jij Bitcoin?</strong></p>
-						<p>Zet je zaak op de kaart!</p>
-					</div>
-				</a>
-			</li>
-		</ul>
+		<ul class="ondernemer-grid" id="merchant-grid"></ul>
 	</div>
 </section>
 
@@ -660,6 +475,7 @@
 	<script src="assets/js/simple-carousel.js"></script>
 	<script src="assets/js/link-behavior.js"></script>
 	<script src="assets/js/home-stats.js"></script>
+	<script src="assets/js/merchants.js" defer></script>
 	<script src="assets/js/contact-form.js"></script>
 
 </body>

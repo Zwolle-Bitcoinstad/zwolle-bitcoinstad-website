@@ -1999,3 +1999,158 @@ b {
 .no-scroll {
   overflow: hidden;
 }
+
+/* UX refresh 2026 */
+:root {
+  --content-readable: 68ch;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-size: clamp(1rem, 0.95rem + 0.35vw, 1.125rem);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Ubuntu", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.content-container {
+  width: min(1100px, calc(100% - 2rem));
+}
+
+.content-text,
+.icon-box .content,
+.meetup-hero-text,
+.blog-intro,
+.site-footer__description,
+.site-footer__note {
+  max-width: var(--content-readable);
+}
+
+main > .content-section {
+  padding-block: clamp(56px, 7vw, 96px);
+}
+
+:where(main, footer) a {
+  color: #cc6f00;
+}
+
+:where(main, footer) a:hover {
+  color: #9d4f00;
+}
+
+:focus-visible {
+  outline: 3px solid #f7931a;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.styled-button {
+  min-height: 44px;
+  border-radius: 999px;
+}
+
+.button-primary {
+  background: #f7931a;
+  color: #151515;
+}
+
+.button-primary:hover,
+.button-primary:focus-visible {
+  background: #d87f0f;
+  color: #111;
+}
+
+.button-secondary {
+  border: 1px solid #f7931a;
+  background: #fff;
+  color: #663500;
+}
+
+.bitcoin-only-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #f6cc8e;
+  background: #fff8ec;
+  color: #7a4a00;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.primary-cta-strip {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-top: 20px;
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-top: 28px;
+}
+
+.quick-link-card {
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  padding: 18px;
+  background: #fff;
+}
+
+.quick-link-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #171717;
+}
+
+.quick-link-card p { margin: 0; }
+
+.ondernemer-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.ondernemer-grid a {
+  padding: 16px;
+  border-radius: 14px;
+  text-align: left;
+}
+
+.business-type {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #6d6d6d;
+}
+
+.blog-card .blog-cta {
+  margin-top: auto;
+}
+
+.blog-cta .content-button {
+  min-width: 180px;
+}
+
+.nav-menu .mobile-menu-wrapper[aria-hidden="true"] {
+  visibility: hidden;
+}
+
+.nav-menu .mobile-menu-wrapper[aria-hidden="false"] {
+  visibility: visible;
+}
