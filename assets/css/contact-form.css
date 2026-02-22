@@ -1,6 +1,11 @@
 #contact-form-wrapper{
     margin: auto;
 }
+
+#contact-intro {
+    text-align: center;
+}
+
 .contact-form {
     max-width: 600px;
     margin: 40px auto;
@@ -45,6 +50,11 @@
     background-color: #ccc;
     cursor: not-allowed;
 }
+
+.contact-form .submit-button-wrapper {
+    text-align: center;
+}
+
 .contact-form .message {
     padding: 15px;
     margin-bottom: 20px;
