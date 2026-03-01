@@ -1170,10 +1170,49 @@ b {
   margin-top: 24px;
   width: auto;
 }
+#start-hier {
+  margin-top: 28px;
+  width: 100%;
+}
+#start-hier-title {
+  margin-bottom: 18px;
+  text-align: center;
+}
+.start-hier-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+}
+.start-hier-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+}
+.start-hier-card h3 {
+  margin: 0;
+}
+.start-hier-card p {
+  margin: 0;
+}
+.start-hier-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
 @media (max-width: 767px) {
   #hero-cta {
     flex-direction: column;
     width: 100%;
+  }
+  .start-hier-grid {
+    grid-template-columns: 1fr;
   }
 }
 .button-primary {
@@ -1237,6 +1276,7 @@ b {
 }
 .zwolle-proof-cta {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
 }
@@ -1249,6 +1289,19 @@ b {
 }
 #business-proof {
   padding: 0 15px 30px;
+}
+.business-proof-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+#home-faq {
+  background: #fff;
+  padding-top: 30px;
+}
+#home-faq .content-block {
+  max-width: 900px;
 }
 #merchant-count {
   background-color: #fff4e0;
