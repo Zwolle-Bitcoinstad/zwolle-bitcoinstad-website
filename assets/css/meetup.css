@@ -137,6 +137,14 @@
   font-size: 0.98rem;
 }
 
+.zbs-agenda__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #ececec;
+}
+
 .zbs-agenda__description {
   margin: 0;
   color: var(--semantic-text-dark);
@@ -155,9 +163,24 @@
   border-radius: 999px;
   border: 1px solid #e0e0e0;
   background: #f6f6f6;
-  color: #9b9b9b;
+  color: #6f6f6f;
   font-weight: 600;
   font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.zbs-agenda__link[href] {
+  border-color: #d6b04e;
+  background: #fff1c2;
+  color: #7a5200;
+}
+
+.zbs-agenda__link[href]:hover {
+  background: #ffe49a;
+}
+
+.zbs-agenda__link[aria-disabled="true"] {
+  color: #9b9b9b;
   pointer-events: none;
   cursor: not-allowed;
 }
